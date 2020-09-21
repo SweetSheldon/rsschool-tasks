@@ -57,7 +57,7 @@ button{
   font-size: 2.5em;
   background: rgb(243,245,181);
   background: radial-gradient(circle, rgb(63 183 226 / 11%) 0%, rgb(112 169 239 / 50%) 100%);
-  
+
 }
 .output{
     padding: 3%;
@@ -97,14 +97,18 @@ button:focus {outline:0;}
     margin: 20%;
     height: 70vh !important;
     }
-    .current-operand{ font-size: 2.5em;}    
+    .current-operand{ font-size: 2.5em;}
 }
 @media screen and (max-width: 450px){
+  body{
+    width: 100hv;
+    height: 100hv;
+  }
   .container {
     margin: 10%;
-    margin-top: 10%;
-    width: 98vh;
-    height: 85vh !important;
+    margin-top: 15%;
+    width: 80vh;
+    height: 80vh !important;
     }
-    .current-operand{ font-size: 2.5em;}    
+    .current-operand{ font-size: 2.5em;}
 }
