@@ -1,0 +1,110 @@
+/* html, body{width: 100%; height: 100%;} */
+body{
+background: rgb(201,255,184);
+background: linear-gradient(90deg, rgba(201,255,184,0.4906163148853291) 15%, rgba(175,186,163,1) 49%, rgba(198,199,112,0.7427171552214635) 77%);
+}
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  #display{
+    width: 90%; height: 80%;
+    font-size: 3em;
+    color: white;
+    background-color: rgb(62, 62, 62);
+    border: none;
+  }
+.container{
+  margin-top: calc(100vh/15);
+/*   margin-top: 2%; */
+  width: 500px;
+  height: 800px;
+  background-color: rgb(160 177 255 / 45%);
+  border-radius: 3px;
+}
+.output{
+  background-color: rgb(62, 62, 62);
+  /*   border: 5px solid rgb(0, 0, 0); */
+  height: 13%;
+  border-radius: 3px;
+}
+.numpad{
+
+  height: 80%;
+}
+table{
+  margin: 1% 2%;
+  width: 96%;
+  height: 100%;
+}
+.button-row{
+  margin: 4%;
+  height: 10%;
+  width: auto;
+}
+td{
+  width: 25%;
+}
+button{
+  border: 2px solid rgb(85 93 132 / 48%);
+  background-color: rgba(236, 214, 165, 0.5);
+  border-radius: 3px;
+  height: 96%;
+  width: 96%;
+  margin-left: 2%;
+  font-size: 2.5em;
+  background: rgb(243,245,181);
+  background: radial-gradient(circle, rgb(63 183 226 / 11%) 0%, rgb(112 169 239 / 50%) 100%);
+  
+}
+.output{
+    padding: 3%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction:column;
+  }
+.previous-operand{
+  flex-basis: 100px;
+  font-size: 1.5em;
+  color: #e4e4e4;
+}
+.current-operand{
+  flex-basis: 300px;
+  font-size: 3.5em;
+  color: #e4e4e4;
+  text-shadow: 1px 1px 2px white;
+}
+button:hover{
+  cursor: pointer;
+  text-shadow: 2px 2px 1px rgba(0,0,0,0.2);
+  background: radial-gradient(circle, rgb(118 199 228 / 11%) 15%, rgb(112 169 239 / 50%) 100%);
+}
+button:active{
+  transition-duration: 0.03s;
+  text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+  background: radial-gradient(circle, rgb(118 199 228 / 11%) 45%, rgb(112 169 239 / 50%) 100%);
+  transform: translate(1px,1px);
+}
+button:focus {outline:0;}
+
+
+
+@media screen and (max-width: 800px){
+  .container {
+    margin: 20%;
+    height: 70vh !important;
+    }
+    .current-operand{ font-size: 2.5em;}    
+}
+@media screen and (max-width: 450px){
+  .container {
+    margin: 2%;
+    margin-top: 4%;
+    width: 98vh;
+    height: 96vh !important;
+    }
+    .current-operand{ font-size: 2.5em;}    
+}
