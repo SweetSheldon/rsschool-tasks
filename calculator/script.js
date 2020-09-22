@@ -20,6 +20,7 @@ class Calculator{
 
   appendNumber(number){
     if (number === '.' && this.currentOperand.includes('.')) return;
+    if (this.currentOperand.toString().length>=15) {alert('Max digits count!'); return;}
     this.currentOperand = this.currentOperand.toString()+number.toString();
   }
 
@@ -52,8 +53,8 @@ class Calculator{
     if(isNaN(prev) ||isNaN(current)) return;
     switch (this.operation) {
       case '+':
-        computation = prev + current;
-        break
+      computation = prev + current;
+        break;
       case '-':
         computation=prev-current;
         break;
@@ -91,12 +92,7 @@ class Calculator{
       integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
     }
     if (decimalDigits != null) {
-      var arrayOfDigits = Array.from(String(parseFloat(decimalDigits).toFixed(12)), Number);
-      console.log(arrayOfDigits);
-      for(let i =arrayOfDigits.length; i>0;i--){
-        if(arrayOfDigits[i]=='0'){arrayOfDigits.pop();}
-        else{return `${integerDisplay}.${decimalDigits}`}
-      return `${integerDisplay}.${decimalDigits}`}
+      return `${integerDisplay}.${decimalDigits}`
     } else {
       return integerDisplay
     }
@@ -110,6 +106,38 @@ class Calculator{
         `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
     } else {
       this.previousOperandTextElement.innerText = ''
+    }
+  }
+
+  finalDisplay() {
+    this.currentOperandTextElement.innerText =
+      this.getFinalNumber(this.currentOperand)
+    if (this.operation != null) {
+      this.previousOperandTextElement.innerText =
+        `${this.getFinalNumber(this.previousOperand)} ${this.operation}`
+    } else {
+      this.previousOperandTextElement.innerText = ''
+    }
+  }
+
+
+  getFinalNumber(number) {
+    const stringNumber = number.toString()
+    const integerDigits = parseFloat(stringNumber.split('.')[0])
+    const decimalDigits = stringNumber.split('.')[1]
+    let integerDisplay
+    if (isNaN(integerDigits)) {
+      integerDisplay = ''
+    } else {
+      integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
+    }
+    if (decimalDigits != null) {
+      if(decimalDigits.toString().length>9){
+        return Math.round((number + Number.EPSILON) * 100) / 100
+      }
+      return `${integerDisplay}.${decimalDigits}`
+    } else {
+      return integerDisplay
     }
   }
 }
@@ -151,7 +179,7 @@ operationButtons.forEach(button =>{
 
 equalsButton.addEventListener('click', button => {
   calculator.compute();
-  calculator.updateDisplay();
+  calculator.finalDisplay();
 })
 
 allClearButton.addEventListener('click', button => {
