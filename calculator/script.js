@@ -66,9 +66,9 @@ class Calculator{
       case '°':
         computation=Math.pow(prev,current);
         break;
-      // case '√':
-      //   computation=Math.pow(prev, 1/current);
-      //   break;
+      case '√':
+        computation=Math.pow(prev, 1/current);
+        break;
       default:
       return;
 
@@ -91,11 +91,11 @@ class Calculator{
       integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
     }
     if (decimalDigits != null) {
-      // var arrayOfDigits = Array.from(String(parseFloat(decimalDigits).toFixed(12)), Number);
-      // console.log(arrayOfDigits);
-      // for(let i =arrayOfDigits.length; i>0;i--){
-      //   if(arrayOfDigits[i]=='0'){arrayOfDigits.pop();}
-      //   else{return `${integerDisplay}.${decimalDigits}`}
+      var arrayOfDigits = Array.from(String(parseFloat(decimalDigits).toFixed(12)), Number);
+      console.log(arrayOfDigits);
+      for(let i =arrayOfDigits.length; i>0;i--){
+        if(arrayOfDigits[i]=='0'){arrayOfDigits.pop();}
+        else{return `${integerDisplay}.${decimalDigits}`}
       return `${integerDisplay}.${decimalDigits}`}
     } else {
       return integerDisplay
