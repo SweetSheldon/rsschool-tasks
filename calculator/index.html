@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" --v>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Alex Korsak</title>
   <link href="normalize.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="style.css" type="text/css">
   <script src="script.js" defer></script>
+  <script type="text/javascript">
+  window.addEventListener('resize', () => {
+  document.querySelector(':root').style
+  .setProperty('--vh', window.innerHeight/100 + 'px');
+  })
+  </script>
   <title></title>
 </head>
  <body>

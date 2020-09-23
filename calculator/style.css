@@ -105,6 +105,8 @@ button:focus {outline:0;}
   body{
     min-width: 100%;
     min-height: 100%;
+    height: calc(10 * var(--vh));
+    width: calc(10 * var(--vh));
     min-height: -webkit-fill-available;
     min-width: -webkit-fill-available !important;
   }
@@ -114,6 +116,6 @@ button:focus {outline:0;}
     width: 80vh;
     height: 80vh !important;
     }
-    .current-operand{ 
+    .current-operand{
     font-size: 2.5em;}
 }
