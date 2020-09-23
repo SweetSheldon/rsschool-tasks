@@ -103,17 +103,17 @@ button:focus {outline:0;}
   height: -webkit-fill-available;
 }
   body{
-    min-width: 100%;
-    min-height: 100%;
-    height: calc(10 * var(--vh));
-    width: calc(10 * var(--vh));
+    min-width: 100vw;
+    min-height: 100vh;
+    /* height: calc(10 * var(--vh));
+    width: calc(10 * var(--vh)); */
     min-height: -webkit-fill-available;
     min-width: -webkit-fill-available !important;
   }
   .container {
     margin: 10%;
     margin-top: 10%;
-    width: 80vh;
+    width: 80vw;
     height: 80vh !important;
     }
     .current-operand{
