@@ -44,6 +44,9 @@ table{
 td{
   width: 25%;
 }
+.row-1 td{
+  width: 29%;
+}
 button{
   border: 2px solid rgb(85 93 132 / 48%);
   background-color: rgba(236, 214, 165, 0.5);
@@ -54,7 +57,6 @@ button{
   font-size: 2.5em;
   background: rgb(243,245,181);
   background: radial-gradient(circle, rgb(63 183 226 / 11%) 0%, rgb(112 169 239 / 50%) 100%);
-
 }
 .output{
     padding: 3%;

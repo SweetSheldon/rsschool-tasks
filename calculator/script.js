@@ -1,7 +1,7 @@
 class Calculator{
   constructor(previousOperandTextElement, currentOperandTextElement){
     this.previousOperandTextElement = previousOperandTextElement;
-    this. currentOperandTextElement = currentOperandTextElement;
+    this.currentOperandTextElement = currentOperandTextElement;
     this.readyToReset = false;
     this.clear();
   }
@@ -26,18 +26,6 @@ class Calculator{
 
   chooseOperation(operation) {
     if (this.currentOperand === '') return;
-
-
-    // if (this.operation=='√'){
-    //   console.log('wut');
-    //   computation=Math.sqrt(this.currentOperand);
-    //   this.readyToRest = true;
-    //   this.currentOperand = computation;
-    //   this.operation = undefined;
-    //   this.previousOperand = '';
-    // }
-
-
     if (this.previousOperand !== '' && this.previousOperand !== '') {
       this.compute();
     }
@@ -140,6 +128,12 @@ class Calculator{
       return integerDisplay
     }
   }
+  neg(){
+    const current = parseFloat(this.currentOperand);
+    let negative = current*(-1);
+    this.currentOperand = negative;
+    this.currentOperandTextElement.innerText = this.currentOperand;
+  }
 }
 
 
@@ -152,6 +146,7 @@ const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
 const allClearButton = document.querySelector('[data-all-clear]');
+const isNegative = document.querySelector('[data-negative]');
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
 
@@ -168,6 +163,10 @@ numberButtons.forEach(button => {
     calculator.appendNumber(button.innerText)
     calculator.updateDisplay();
   })
+})
+
+isNegative.addEventListener('click', button => {
+  calculator.neg();
 })
 
 operationButtons.forEach(button =>{
