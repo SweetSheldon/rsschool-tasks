@@ -75,7 +75,7 @@ body{
 
 @media screen and (max-width: 800px){
   body{
-    grid-template-columns: 5% auto 5%;
-    grid-template-rows: 25% auto 25%;
+    grid-template-columns: 25% auto 25%;
+    grid-template-rows: 5% auto 5%;
   }
 }
