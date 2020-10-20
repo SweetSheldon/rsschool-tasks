@@ -1,0 +1,46 @@
+
+.quote {
+  font: 1.2rem Georgia, serif;
+  margin: 0;
+  background: #eee;
+  padding: 0.4em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 75%;
+}
+.quote figcaption,
+.quote blockquote {
+  margin: 1em;
+}
+.quote figcaption {
+  text-align: right;
+}
+.btn {
+  width: 4.3em;
+  height: 4.3em;
+  border: 1px solid black;
+  background: rgba(128, 128, 128, 0.5);
+  border-radius: 15%;
+  /* background-image: url("https://www.pngarts.com/files/7/Update-Button-PNG-Image.png");
+  background-size: contain;
+  background-repeat: no-repeat; */
+  filter: grayscale(.8);
+  margin: 10px;
+}
+.btn:hover {
+  filter: grayscale(.2);
+}
+.btn:active,
+.btn:focus {
+  outline: 0;
+}
+.btn:active{
+  transform: scale(1.02)
+}
+
+@media (max-width: 700px) {
+  .time {
+    font-size: 6rem;
+  }}
