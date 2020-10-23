@@ -1,6 +1,6 @@
-
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
+const speed = document.querySelector('.speed');
 const weatherDescription = document.querySelector('.weather-description');
 const city = document.querySelector('.city');
 
@@ -12,6 +12,7 @@ async function getWeather() {
   weatherIcon.className = 'weather-icon owf';
   weatherIcon.classList.add(`owf-${data.weather[0].id}`);
   temperature.textContent = `${data.main.temp.toFixed(0)}°C`;
+  speed.textContent = `Влажность: ${data.main.humidity} г/м³, скорость ветра: ${data.wind.speed} м/c`;
   weatherDescription.textContent = data.weather[0].description;
 }
 
