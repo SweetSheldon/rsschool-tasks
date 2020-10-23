@@ -48,8 +48,3 @@ body>button{
 .btn:active{
   transform: scale(1.02)
 }
-
-@media (max-width: 700px) {
-  .time {
-    font-size: 6rem;
-  }}

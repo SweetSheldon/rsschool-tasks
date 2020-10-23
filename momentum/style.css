@@ -37,6 +37,12 @@ h2 {
 
 @media (max-width: 700px) {
   .time {
-    font-size: 6rem;
+    font-size: 3rem;
+  }
+  .quote{
+    width: 95% !important;
+  }
+  blockquote{
+    font-size: 0.75em;
   }
 }
