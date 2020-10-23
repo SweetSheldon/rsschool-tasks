@@ -165,7 +165,7 @@ function makeCounter() {
       stringTime='morning';
     }
     document.body.style.backgroundImage =
-      `url(./assets/images/night/${time>19?(time-10):time||time==0?(time+1):time}.jpg)`;
+      `url(./assets/images/${stringTime}/${time>19?(time-10):time||time==0?(time+1):time}.jpg)`;
       console.log(time)
       return currentCount++
   };
