@@ -186,7 +186,7 @@ function getImage() {
 
 
 changeImg.addEventListener('click', event => {
-  counter();
+  setTimeout(function() {counter();}, 1000);
 });
 
 
