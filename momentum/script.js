@@ -166,7 +166,7 @@ function makeCounter() {
     }
       var bgImg = new Image();
       bgImg.onload = function(){
-        document.body.style.backgroundImage = `url(./assets/images/${stringTime}/${time>19?(time-10):time||time==0?(time+1):time}.jpg)`;
+        document.body.style.backgroundImage = 'url(' + bgImg.src + ')';
       };
       bgImg.src = `./assets/images/${stringTime}/${time>19?(time-10):time||time==0?(time+1):time}.jpg`;
     
