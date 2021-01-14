@@ -1,4 +1,5 @@
-let numberOfFilms=0;
+
+//let numberOfFilms=0;
 
 const personalMovieDB ={
  count :[],
@@ -41,7 +42,7 @@ fetch(`https://imdb8.p.rapidapi.com/title/auto-complete?q=${newStr}`, {
 		"x-rapidapi-host": "imdb8.p.rapidapi.com"
 	}
 })
-.then(response => 
+.then(response =>
     response.json().then(data => ({
         data: data,
         status: response.status
@@ -51,7 +52,7 @@ fetch(`https://imdb8.p.rapidapi.com/title/auto-complete?q=${newStr}`, {
 	console.log(res.data);
 
 
-
+if(personalMovieDB.API.d==undefined){alert('Incorrect film name');return}
 
 
 let j=0;
@@ -62,12 +63,12 @@ if(j==7&&personalMovieDB.API.d[j].q!='feature'){alert('Can\'t find any films wit
 
 
 
-var node = document.createElement("div");  
-node.setAttribute('id',`${lastFilm.replace(/ /g, "")}`)     
-node.setAttribute('class',`d-flex m-auto flex-row w-75 my-1`)    
-//var textnode = document.createTextNode(`${personalMovieDB.count.length}     ${lastFilm}:${lastRating}      actors:${personalMovieDB.API.d[0].s}     rank:${personalMovieDB.API.d[0].rank}`);      
-//node.appendChild(node);                         
-document.getElementById("films").appendChild(node); 
+var node = document.createElement("div");
+node.setAttribute('id',`${lastFilm.replace(/ /g, "")}`)
+node.setAttribute('class',`d-flex m-auto flex-row w-75 my-1`)
+//var textnode = document.createTextNode(`${personalMovieDB.count.length}     ${lastFilm}:${lastRating}      actors:${personalMovieDB.API.d[0].s}     rank:${personalMovieDB.API.d[0].rank}`);
+//node.appendChild(node);
+document.getElementById("films").appendChild(node);
 
 
 
@@ -87,9 +88,10 @@ node.insertAdjacentHTML('beforeend', `<div class="w-25" id='persRating'>My ratin
 
 node.insertAdjacentHTML('beforeend', `<div class="w-25" id='actors'>Actors:${personalMovieDB.API.d[j].s} </div>`);
 
+node.insertAdjacentHTML('beforeend', `<input type="button" value="Del" class="btn btn-danger btn-sm" id="${lastFilm.replace(/ /g, "")}"   onlick="deleteFilm(this.id)" onmousedown="deleteFilm(this.id)" >`);
 
-let lastFilms = document.getElementById('films').innerHTML;
-saveToLocal(lastFilms)
+
+saveToLocal()
 
 
 
@@ -108,24 +110,45 @@ saveToLocal(lastFilms)
 
 
 
+function deleteFilm(e){
+	console.log(e)
+	var removeElem = document.getElementById(e);
+	removeElem.remove();
+
+	saveToLocal()
+}
 
 
 
 
 
-function saveToLocal(films){
-	
+function saveToLocal(){
+	let films = document.getElementById('films').innerHTML;
 	localStorage.setItem('filmsList', films);
 }
 
 function loadFilmsList(){
 
 	var saved = localStorage.getItem('filmsList');
-
-	if (saved) {
+	if (saved!="undefined") {
 		document.getElementById('films').innerHTML = saved;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
