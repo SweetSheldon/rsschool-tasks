@@ -38,8 +38,8 @@ let newStr = lastFilm.replace(/ /g, "%20");
 fetch(`https://imdb8.p.rapidapi.com/title/auto-complete?q=${newStr}`, {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-key": "fd6e552db8mshf731cb78e069e10p1130bajsne4e2df782100",
-		"x-rapidapi-host": "imdb8.p.rapidapi.com"
+		"x-rapidapi-key": "key",
+		"x-rapidapi-host": "imdb.p.rapidapi.com"
 	}
 })
 .then(response =>

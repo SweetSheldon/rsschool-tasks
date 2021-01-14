@@ -6,4 +6,4 @@ puzzle task: https://sweetsheldon.github.io/tasks/puzzle/ \
 momentum task: https://sweetsheldon.github.io/tasks/momentum/ \
 shelter task: https://sweetsheldon-shelter.netlify.app/ \
 vitual keyboard task: https://sweetsheldon-virtualkeyboard.netlify.app/ \
-personal films rating: https://sweetsheldon.github.io/tasks/film-rating/
+personal films rating: https://sweetsheldon-filmarting.netlify.app/
