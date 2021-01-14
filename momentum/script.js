@@ -137,9 +137,20 @@ name.addEventListener('click', event => {
   }
 });
 
+name.addEventListener('blur', event => {
+  if (name == null || name.textContent=='' || name =='[Enter Name]' ||name.innerHTML=='[Enter Name]') {
+    name.textContent = '[Enter Name]';
+  }
+});
+
 focus.addEventListener('click', event => {
-  if (focus == null || name=='' || focus =='[Enter Name]' ||focus.innerHTML=='[Enter Focus]') {
+  if (focus == null || focus.textContent=='' || focus.textContent =='[Enter Name]' ||focus.innerHTML=='[Enter Focus]') {
     focus.textContent = '';
+  }
+});
+focus.addEventListener('blur', event => {
+  if (focus == null || focus.textContent=='' || focus.textContent =='[Enter Name]' ||focus.innerHTML=='[Enter Focus]') {
+    focus.textContent = '[Enter Name]';
   }
 });
 
@@ -154,6 +165,8 @@ function makeCounter() {
   return function() {
     let time = hour+currentCount;
     //добавить обнуление времени для утра!!!!!!!!!!!!!!!!!!!
+    if(time>=25){time=time%25}
+
     if (time>=6 && time < 12) {
       stringTime='day';
     } else if (time>=12&&time < 18) {
@@ -169,7 +182,7 @@ function makeCounter() {
         document.body.style.backgroundImage = 'url(' + bgImg.src + ')';
       };
       bgImg.src = `./assets/images/${stringTime}/${time>19?(time-10):time||time==0?(time+1):time}.jpg`;
-    
+      console.log(time)
       return currentCount++
   };
 }
