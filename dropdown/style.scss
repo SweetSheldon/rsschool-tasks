@@ -1,0 +1,51 @@
+$formWidth: 400px;
+
+@mixin forms {
+    width: $formWidth;
+    align-items: center;
+    text-align: center;
+  }
+
+.text-center {
+    text-align: center;
+}
+
+ 
+
+
+
+#mainButton{
+    margin: 2% 0;
+}
+
+#films>div{
+font-size: 20px;
+background-color: rgba(13, 110, 253, 0.16);
+border-radius: 5px;
+padding: 10px;
+}
+
+
+#filmName{
+    font-weight: bold;
+}
+
+.dropdown{
+    background-color: antiquewhite;
+    font-size: 36px;
+    @include forms;
+    
+}
+.dropdown>.dropdown{
+    border: 3px solid black;
+}
+
+#dropdownForms{
+    @include forms;
+}
+
+
+
+.choises{
+    display: none;
+}
