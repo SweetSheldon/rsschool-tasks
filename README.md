@@ -7,4 +7,5 @@ momentum task: https://sweetsheldon.github.io/tasks/momentum/ \
 shelter task: https://sweetsheldon-shelter.netlify.app/ \
 vitual keyboard task: https://sweetsheldon-virtualkeyboard.netlify.app/ \
 personal films rating: https://sweetsheldon-filmarting.netlify.app/ \
-dropdown task: https://sweetsheldon.github.io/tasks/dropdown/
+dropdown task: https://sweetsheldon.github.io/tasks/dropdown/ \
+love calculator(jquery train): https://sweetsheldon-lovecalculator.netlify.app/  \
