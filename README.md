@@ -9,4 +9,5 @@ vitual keyboard task: https://sweetsheldon-virtualkeyboard.netlify.app/ \
 personal films rating: https://sweetsheldon-filmarting.netlify.app/ \
 dropdown task: https://sweetsheldon.github.io/tasks/dropdown/ \
 love calculator(jquery train): https://sweetsheldon-lovecalculator.netlify.app/  \
-currency calculator(jquery train): https://sweetsheldon-currencycalculator.netlify.app/  \
+currency calculator(jQuery train): https://sweetsheldon-currencycalculator.netlify.app/  \
+mail sender(Expres.js train): https://sweetsheldon.github.io/tasks/mail-sender/ \
