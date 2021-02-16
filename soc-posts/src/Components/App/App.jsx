@@ -15,33 +15,46 @@ class App extends Component{
                 {text:"I want to learn React",favorite:true, liked:true, id: 1 },
                 {text:"I make it tomoroow",favorite:false,liked:true, id: 2 },
                 {text:"Eat some icecream",favorite:true,liked:false, id: 3 }
-            ],
-            maxId:4
+            ]
         }
+        this.maxId = 4
         this.deleteItem=this.deleteItem.bind(this)
         this.addItem=this.addItem.bind(this)
+        this.actionWithItem=this.actionWithItem.bind(this)
     }
 
     deleteItem(id){
         this.setState(({postData})=>{
             let index = postData.findIndex((elem)=>elem.id === id)
-            console.log('index: ', index,'id: ',id)
             let newPostData = [...this.state.postData.slice(0,index),...this.state.postData.slice(index+1)]
             return {postData:newPostData}
         })
     }
 
     addItem(text){
-    let newElem = {text:text,favorite:false,liked:false, id: this.state.maxId++}
+    let newElem = {text:text,favorite:false,liked:false, id: this.maxId++}
         this.setState(({postData})=>{
             return {postData:[...postData, newElem]}
         })
+
+    }
+
+    actionWithItem(action, id){
+        this.setState(({postData})=>{
+            let index = postData.findIndex((elem)=>elem.id === id)
+            let old = postData[index];
+            let newItem
+            if(action=='favorite'){newItem = {...old, favorite: !old.favorite}}
+            else if(action=='like'){newItem = {...old, liked: !old.liked}}
+            let newPostData = [...this.state.postData.slice(0,index),newItem,...this.state.postData.slice(index+1)]
+            return {postData:newPostData}
+        })
+
     }
 
 
     render() {
-
-
+       
     return (<div className={`app d-flex flex-column ${style.wrapper}`}>
         <div className="w-50 pt-5 mx-auto">
             <AppHeader postData={this.state.postData}/>
@@ -49,7 +62,9 @@ class App extends Component{
                 <SearchPannel/>
                 <PostsStatusFilter/>
             </div>
-            <PostList postData={this.state.postData} onDelete={(elemId)=>{this.deleteItem(elemId)}}/>
+            <PostList postData={this.state.postData}
+                      actionWithItem={(action, id)=>{this.actionWithItem(action, id)}}
+                      onDelete={(id)=>{this.deleteItem(id)}}/>
             <PostAddForm addItem={(text)=>{this.addItem(text)}}/>
         </div>
     </div>)
