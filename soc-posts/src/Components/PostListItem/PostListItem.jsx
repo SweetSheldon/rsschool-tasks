@@ -24,7 +24,7 @@ class PostListItem extends Component {
         }))
     }
     render() {
-        const {text} =this.props
+        const {text, onDelete} =this.props
         const {favorite,liked} =this.state
         let favoriteClass = `${style.PostItem} app-list-item d-flex justify-content-between w-75 m-auto p-2`
         if (favorite) {
@@ -35,19 +35,19 @@ class PostListItem extends Component {
             likedClass += ` ${style.liked}`
         }
         return (
-            <li className={favoriteClass}>
+            <div className={favoriteClass}>
                 <span className="app-list-item-label">{text}</span>
-                <div className="d-flex justify-content-around w-25  allign-items-center">
+                <div className="d-flex justify-content-around w-25  allign-items-center pr-3">
                     <button onClick={this.onFavorite} className={`btn-star btn-sm ${style.star}`} type="button">
                         <i className="fa fa-star"></i>
                     </button>
-                    <button className={`trash btn-sm ${style.trash}`} type="button">
+                    <button onClick={onDelete} className={`trash btn-sm ${style.trash}`} type="button">
                         <i className="fa fa-trash-o"></i>
                     </button>
                     <i onClick={this.onLike} className={likedClass}></i>
 
                 </div>
-            </li>
+            </div>
         )
     }
 }
