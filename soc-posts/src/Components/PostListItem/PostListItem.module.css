@@ -1,0 +1,55 @@
+.PostItem{
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    margin: 15px;
+    background-color: whitesmoke;
+}
+
+.star{
+color: yellow;
+transition: color 200ms,background-color 500ms;
+}
+.star:hover{
+    background-color: gold;
+    color:goldenrod;
+}
+
+.star i:hover{
+    transition: 500ms;
+    transform: scale(1.1);
+}
+
+.favorite button:nth-child(1){
+    color:darkgoldenrod;
+    background-color: rgba(222, 196, 65,0.5);
+}
+.favorite button:nth-child(1):hover{
+    color:white;
+    background-color: rgba(100,100,100,0.5);
+}
+
+.heart{
+    color:pink;
+    transition: all 500ms;
+}
+.heart:hover{
+    cursor: pointer;
+    color:mediumvioletred;
+    transform: scale(1.1);
+}
+
+.liked{
+    color:darkred;
+}
+.liked:hover{
+    color:deeppink;
+}
+
+.trash{
+    transition: color 200ms,background-color 500ms;
+}
+
+.trash:hover{
+    color:white;
+    background-color: #282c34;
+}
