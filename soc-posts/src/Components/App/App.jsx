@@ -15,12 +15,14 @@ class App extends Component{
                 {text:"I want to learn React",favorite:true, liked:true, id: 1 },
                 {text:"I make it tomoroow",favorite:false,liked:true, id: 2 },
                 {text:"Eat some icecream",favorite:true,liked:false, id: 3 }
-            ]
+            ],
+            searchString:''
         }
         this.maxId = 4
         this.deleteItem=this.deleteItem.bind(this)
         this.addItem=this.addItem.bind(this)
         this.actionWithItem=this.actionWithItem.bind(this)
+        this.onUpdateSearch=this.onUpdateSearch.bind(this)
     }
 
     deleteItem(id){
@@ -52,17 +54,33 @@ class App extends Component{
 
     }
 
+    searchItems(items,string){
+        if(string.length===0){
+            return items
+        }
+
+      return items.filter((item)=>{
+           return item.text.toLowerCase().indexOf(string.toLowerCase()) > -1
+        })
+    }
+
+    onUpdateSearch(string){
+        this.setState({searchString:string})
+    }
 
     render() {
-       
+    const{postData, searchString} = this.state
+    const visiblePost = this.searchItems(postData,searchString)
+
     return (<div className={`app d-flex flex-column ${style.wrapper}`}>
         <div className="w-50 pt-5 mx-auto">
-            <AppHeader postData={this.state.postData}/>
+            <AppHeader postData={visiblePost}/>
             <div className="search-panel d-flex">
-                <SearchPannel/>
+                <SearchPannel
+                    onUpdateSearch={this.onUpdateSearch}/>
                 <PostsStatusFilter/>
             </div>
-            <PostList postData={this.state.postData}
+            <PostList postData={visiblePost}
                       actionWithItem={(action, id)=>{this.actionWithItem(action, id)}}
                       onDelete={(id)=>{this.deleteItem(id)}}/>
             <PostAddForm addItem={(text)=>{this.addItem(text)}}/>

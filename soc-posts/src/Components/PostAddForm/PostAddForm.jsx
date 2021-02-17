@@ -19,6 +19,7 @@ class PostAddForm extends Component{
     onSubmit(e){
         e.preventDefault()
         this.props.addItem(this.state.text)
+        this.setState({text:''} )
     }
 
 
@@ -30,6 +31,7 @@ class PostAddForm extends Component{
                     placeholder="What are you thinking about?"
                     className="form-control new-post-label"
                     onChange={this.onValueChange}
+                    value={this.state.text}
                 />
                 <button type="submit" className="btn btn-outline-secondary text-nowrap">Add post</button>
             </form>
