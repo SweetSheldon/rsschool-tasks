@@ -16,13 +16,15 @@ class App extends Component{
                 {text:"I make it tomoroow",favorite:false,liked:true, id: 2 },
                 {text:"Eat some icecream",favorite:true,liked:false, id: 3 }
             ],
-            searchString:''
+            searchString:'',
+            filter:'All'
         }
         this.maxId = 4
         this.deleteItem=this.deleteItem.bind(this)
         this.addItem=this.addItem.bind(this)
         this.actionWithItem=this.actionWithItem.bind(this)
         this.onUpdateSearch=this.onUpdateSearch.bind(this)
+        this.onUpdateFiler=this.onUpdateFiler.bind(this)
     }
 
     deleteItem(id){
@@ -68,9 +70,21 @@ class App extends Component{
         this.setState({searchString:string})
     }
 
+    onFilterItems(items, filter){
+        switch (filter){
+            case 'All':
+                return items;
+            case 'Liked':
+                return items.filter(item=>item.liked);
+        }
+    }
+    onUpdateFiler(filter){
+        this.setState({filter})
+    }
+
     render() {
-    const{postData, searchString} = this.state
-    const visiblePost = this.searchItems(postData,searchString)
+    const{postData, searchString,filter} = this.state
+    const visiblePost = this.onFilterItems(this.searchItems(postData,searchString),filter)
 
     return (<div className={`app d-flex flex-column ${style.wrapper}`}>
         <div className="w-50 pt-5 mx-auto">
@@ -78,7 +92,9 @@ class App extends Component{
             <div className="search-panel d-flex">
                 <SearchPannel
                     onUpdateSearch={this.onUpdateSearch}/>
-                <PostsStatusFilter/>
+                <PostsStatusFilter
+                    onUpdateFilter={this.onUpdateFiler}
+                filter={filter}/>
             </div>
             <PostList postData={visiblePost}
                       actionWithItem={(action, id)=>{this.actionWithItem(action, id)}}
